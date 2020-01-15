@@ -83,26 +83,15 @@ various edge cases and use cases that come up.
 
 ** Installation
 
-Clone the Git repository, and run =install.sh=
+Clone the Git repository into =~/.emacs.d=
 
 #+BEGIN_SRC shell
-$ git clone https://github.com/plexus/chemacs.git
-$ cd chemacs
-$ ./install.sh
-OK      Creating symlink ~/.emacs -> /home/arne/chemacs/.emacs
+$ git clone https://github.com/plexus/chemacs.git ~/.emacs.d
 #+END_SRC
 
-The install script will symlink =~/.emacs= to the Chemacs script. If you
-already have a =~/.emacs= you need to move it out of the way first
-
-#+BEGIN_SRC shell
-$ ./install.sh
-WARN    chemacs can't be installed, ~/.emacs is in the way
-#+END_SRC
-
-By symlinking you can easily update Chemacs with a =git pull=. Chemacs is not
-available on ELPA/MELPA because its special position in the Emacs boot process
-would cause a chicken and egg problem.
+You can easily update Chemacs with a =git pull=. Chemacs is not available on
+ELPA/MELPA because its special position in the Emacs boot process would cause a
+chicken and egg problem.
 
 ** Usage
 
