@@ -96,7 +96,14 @@
     (error "No profile `%s' in %s" profile chemacs-profiles-path))
   (let* ((emacs-directory (file-name-as-directory
                            (chemacs-emacs-profile-key 'user-emacs-directory)))
-         (init-file (expand-file-name "early-init.el" emacs-directory)))
+         (init-file       (expand-file-name "early-init.el" emacs-directory))
+         (server-name-    (chemacs-emacs-profile-key 'server-name)))
+    (setq user-emacs-directory emacs-directory)
+
+    ;; Allow multiple profiles to each run their server
+    ;; use `emacsclient -s profile_name' to connect
+    (when server-name-
+      (setq server-name server-name-))
 
     ;; Start the actual initialization
     (load init-file 'noerror 'nomessage 'nosuffix)))
